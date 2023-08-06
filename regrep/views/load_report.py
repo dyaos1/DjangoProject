@@ -5,3 +5,4 @@ from regrep.forms import LoadForm
 # Create your views here.
 def load_report(req):
     form = LoadForm()
+    
