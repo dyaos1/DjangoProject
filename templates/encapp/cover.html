@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SERA ICT</title>
+
+    <!-- 부트스트랩 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <!--구글 폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Material Icons-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- date picker css -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+
+    <style>
+      a.icons:link { color: black; text-decoration: none;}
+      a.icons:visited { color: black; text-decoration: none;}
+      .circle {
+        display: flex;
+        align-items: flex-end;
+        border: 2px solid white;
+        border-radius: 50%;
+        margin: 5px;
+        background: white;
+      }
+      .card {
+        height: 100%;
+      }
+      .row {
+        margin: 10px 0px;
+      }
+      .modal_overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: None;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+      }
+
+      .modal_window {
+        background: white;
+        backdrop-filter: blur(13.5px);
+        -webkit-backdrop-filter: blur(13.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 800px;
+        height: 600px;
+        position: relative;
+        padding: 10px;
+      }
+
+      .modal_title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .modal_title_side {
+        flex: 0 0 40px;
+        text-align: center;
+      }
+      .body-content-box {
+        margin: 15px;
+        padding: 15px;
+        border: solid 1px blue;
+        border-radius: 15px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 1000px;
+        margin-left: 100px;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: flex-end;
+          background: white;
+          padding: 10px;
+        "
+      >
+        <img
+          src="http://elimsafety.com/data/file/logo.jpg"
+          style="width: 25%"
+        />
+        <div style="display: flex; flex-direction: row; align-items: flex-end">
+          <a
+            href="http://seraict.co.kr/data/seraict/"
+            style="
+              font-family: 'Dancing Script', cursive;
+              font-size: 32px;
+              font-weight: 600;
+              text-decoration: none;
+              color: inherit;
+            "
+          >
+            contact us :
+          </a>
+          <div class="circle">
+            <span class="material-symbols-outlined"> 
+              <a class="icons" href="http://elimsafety.com/">Home</a> 
+            </span>
+          </div>
+          <div class="circle">
+            <span class="material-symbols-outlined"> mail </span>
+          </div>
+          <div class="circle">
+            <span class="material-symbols-outlined"> smartphone </span>
+          </div>
+          <div class="circle">
+            <span class="material-symbols-outlined"> explore </span>
+          </div>
+        </div>
+      </div>
+      <div style="margin: 10px 0px; border: solid 1px grey"></div>
+      <!--Body-->
+      <div class="container text-center">
+        <div class="row">
+
+          <!--Report-->
+          <div class="col-sm">
+            <div class="card">
+              <div style="height: 60%; overflow: hidden">
+                <img
+                  src="/static/cover/books.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">정기 보고서 작성</h5>
+                <p class="card-text">
+                  정기 보고서를 작성합니다.<br />&nbsp<br />&nbsp
+                </p>
+              </div>
+              <div
+                style="
+                  margin: 10px 10px 10px 0px;
+                  display: flex;
+                  flex-direction: row-reverse;
+                "
+              >
+                <span></span>
+                <a href="{% url 'main:load' %}" class="btn btn-outline-primary"
+                  >Start Report</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!--도면표시기-->
+          <div class="col-sm">
+            <div class="card">
+              <div style="height: 60%; overflow: hidden">
+                <img
+                  src="/static/cover/architecture.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">결함 위치 도면</h5>
+                <p class="card-text">
+                  도면에 결함 위치를 표시하는 기능입니다.<br />&nbsp
+                </p>
+              </div>
+              <div
+                style="
+                  margin: 10px 10px 10px 0px;
+                  display: flex;
+                  flex-direction: row-reverse;
+                "
+              >
+                <span></span>
+                <a href="#" class="btn btn-outline-primary">Damage Tracer</a>
+              </div>
+            </div>
+          </div>
+          <!--Engineer-->
+          <div class="col-sm">
+            <div class="card">
+              <div style="height: 60%; overflow: hidden">
+                <img
+                  src="/static/cover/engineer.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">기술자 데이터베이스</h5>
+                <p class="card-text">
+                  기술자 데이터 베이스에 접속합니다.<br />&nbsp<br />&nbsp
+                </p>
+              </div>
+              <div
+                style="
+                  margin: 10px 10px 10px 0px;
+                  display: flex;
+                  flex-direction: row-reverse;
+                "
+              >
+                <span></span>
+                <a href="#" class="btn btn-outline-primary">Engineer Info</a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <!--DMG-->
+          <div class="col-sm">
+
+          </div>
+          <div class="col-sm"></div>
+          <div class="col-sm"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal 1-->
+    <div id="modal_new_report" class="modal_overlay">
+      <div class="modal_window">
+        <div class="modal_title">
+          <div class="modal_title_side"></div>
+          <div>새 보고서 작성</div>
+          <div class="modal_title_side">
+            <span id="close_modal" class="material-symbols-outlined">
+              close
+            </span>
+          </div>
+        </div>
+        <div class="modal_body">
+          <div class="body-content-box">
+            <div class="body-content-box-label">
+              <h5>기본정보</h5>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="basic_name"
+                placeholder="name@example.com"
+                value=""
+              />
+              <label for="basic_name">건축물명</label>
+            </div>
+            <div class="form-floating mb-3">
+              <!-- DateTimePicker 위젯를 적용하기 위한 TextBox를 선언한다. -->
+              <input
+                type="text"
+                class="form-control"
+                id="basic_startAt"
+                placeholder="name@example.com"
+                value=""
+              />
+
+              <label for="basic_startAt">시작일</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="basic_endAt"
+                placeholder="name@example.com"
+                value=""
+              />
+              <label for="basic_endAt">종료일</label>
+            </div>
+          </div>
+        </div>
+        <div class="bodal_footer">
+          <div class="body-content-box">
+            <button type="button" class="btn btn-primary btn-lg" id="save_button">
+              저장하기
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" id="generate">생성하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+
+    <!--date picker js-->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script>
+      $.ajaxSetup({
+        headers: { "X-CSRFToken": "{{csrf_token}}" },
+      });
+
+
+      $("#save_button").on("click", () => {
+        let fd = new FormData()
+
+        basic_name = $("#basic_name").val()
+        basic_startAt = $("#basic_startAt").val()
+        basic_endAt = $("#basic_endAt").val()
+
+        if (basic_name === "") {
+          alert("건물명을 입력하세요")
+          return false
+        }
+
+        let pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/
+        console.log(pattern.test(basic_startAt))
+        console.log(pattern.test(basic_endAt))
+
+        if (!pattern.test(basic_startAt) || !pattern.test(basic_endAt)) {
+          alert("유효한 날짜형식을 입력하세요. 예) 2016-08-17")
+          return false
+        }
+
+        // 기초정보
+        fd.append('basic_name', basic_name)
+        fd.append('basic_startAt', basic_startAt)
+        fd.append('basic_endAt', basic_endAt)
+
+        $.ajax({
+          url: "/main/new/",
+          data: fd,
+          method: "POST",
+          processData: false,
+          contentType: false,
+          success: (response) => {
+            console.log("성공");
+            // 서버 응답 데이터에서 리디렉션 URL 추출
+            var redirectUrl = response.redirect_url;
+            console.log(redirectUrl)
+            // 리디렉션 수행
+            window.location.href = redirectUrl;
+          },
+          error: (req, status, err) => {
+            console.log(err);
+          },
+          complete: () => {
+            console.log("완료");
+          },
+        })
+      })
+
+
+      $(function () {
+        $("#basic_startAt").datepicker({
+          dateFormat: "yy-mm-dd",
+          monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
+        });
+      });
+
+      $(function () {
+        $("#basic_endAt").datepicker({
+          dateFormat: "yy-mm-dd",
+          monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
+        });
+      });
+
+      // 모달 띄우기
+      /*
+      const modal = document.getElementById("modal_new_report");
+      const buttonAddFeed = document.getElementById("new_report");
+      buttonAddFeed.addEventListener("click", (e) => {
+        modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌
+        modal.style.display = "flex";
+        document.body.style.overflowY = "hidden";
+      });
+
+      // 모달 닫기 코드
+      const buttonCloseModal = document.getElementById("close_modal");
+      buttonCloseModal.addEventListener("click", (e) => {
+        modal.style.display = "none";
+        document.body.style.overflowY = "visible";
+      });
+      */
+    </script>
+  </body>
+</html>
